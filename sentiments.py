@@ -19,7 +19,6 @@ def sentiment(text):
     """
     words = pattern_split.split(text.lower())
     sentiments = map(lambda word: afinn.get(word, 0), words)
-    print sentiments
     if sentiments:
         # How should you weight the individual word sentiments? 
         # You could do N, sqrt(N) or 1 for example. Here I use sqrt(N)
@@ -42,5 +41,5 @@ if __name__ == '__main__':
 
     # Test 
     # text = "Finn is only a tiny bit stupid and not idiotic. What I think about is good actually is really sarcastic"
-    text = "I want to suggest a good way to be fit and this might not be the only one but Yeah It's possible to do so. It kind of amazing whey people like you are really stupid about the subject. that is not a problem but it is a matter of concern > People grow UP!!!"
+    text = "BB u r I have watched all ur videos...literally all... all are awesome... wishing that you will be most viewed artist on YouTube n most liked in FB... my DP status n everything features U... ur timing is just amazing...kha se late ho itne sare ideas"
     print("%6.2f %s" % (sentiment(text), text))

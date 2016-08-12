@@ -52,10 +52,14 @@ def textrank(document):
 
 
 def summarize():
+    path = "C:\\Users\\rahul\\Downloads\\Video\\video.mp4"
     para = "I want to suggest a good way to be fit and this might not be the only one but Yeah It's possible to do so. It kind of amazing whey people like you are really stupid about the subject. that is not a problem but it is a matter of concern > People grow UP!!!"
-    payload = {'apikey': 'a429a338-07a1-4b6e-bd46-c75b1fab8c89', 'text': para}
-    r = requests.get('http://api.idolondemand.com/1/api/sync/extractconcepts/v1', params=payload)
-    r = requests.get('https://api.havenondemand.com/1/api/sync/analyzesentiment/v1', params=payload)
+    # payload = {'apikey': 'a429a338-07a1-4b6e-bd46-c75b1fab8c89', 'text': para}
+    payload = {'apikey': 'a429a338-07a1-4b6e-bd46-c75b1fab8c89', 'url': 'https://www.youtube.com/watch?v=OkP8BAwfO24'}
+
+    # r = requests.get('http://api.idolondemand.com/1/api/sync/extractconcepts/v1', params=payload)
+    # r = requests.get('https://api.havenondemand.com/1/api/sync/analyzesentiment/v1', params=payload)
+    r = requests.get('https://api.havenondemand.com/1/api/async/recognizespeech/v1', params=payload)
     json_r = json.loads(r.text)
     print json_r
 
