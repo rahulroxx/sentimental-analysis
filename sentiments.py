@@ -42,4 +42,4 @@ if __name__ == '__main__':
     # Test 
     # text = "Finn is only a tiny bit stupid and not idiotic. What I think about is good actually is really sarcastic"
     text = "BB u r I have watched all ur videos...literally all... all are awesome... wishing that you will be most viewed artist on YouTube n most liked in FB... my DP status n everything features U... ur timing is just amazing...kha se late ho itne sare ideas"
-    print("%6.2f %s" % (sentiment(text), text))
+    print("Score: %6.2f , Text:  %s" % (sentiment(text), text))
