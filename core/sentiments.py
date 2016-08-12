@@ -5,7 +5,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 # AFINN-111 is as of June 2011 the most recent version of AFINN
-filenameAFINN = 'datasets/AFINN-111.txt'
+filenameAFINN = '../datasets/AFINN-111.txt'
 afinn = dict(map(lambda (w, s): (w, int(s)), [ 
             ws.strip().split('\t') for ws in open(filenameAFINN) ]))
 
