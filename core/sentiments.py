@@ -1,6 +1,7 @@
 import math
 import re
 import sys
+import operator
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -31,15 +32,25 @@ def sentiment(text):
 
 
 if __name__ == '__main__':
+    positive_comments = []
+    nuetral_comments = []
+    negative_comments = []
+    posts_list_scores = []
+    score_dict_update = {}
     # Single sentence example:
-    # text = "Finn is stupid and idiotic"
-    # print("%6.2f %s" % (sentiment(text), text))
-    
-    # No negation and booster words handled in this approach
-    # text = "Finn is only a tiny bit stupid and not idiotic. What I think about is good actually is really sarcastic"
-    # print("%6.2f %s" % (sentiment(text), text))
+    texts_list  = ["Finn is stupid and idiotic", "That audio is really innovative, I want to purchase it", "I hate those people who are not in favour of obama", "I like those shoes and black dress is awesome!!!"]
+    for text in texts_list:
+        posts_list_scores.append(sentiment(text))
+        # posts_list.append(score_dict)
+    # print posts_list
+    scores_zipped = zip(texts_list, posts_list_scores)
+    for x in scores_zipped:
+        if x[1] > 0:
+            positive_comments.append(x)
+        elif x[1] == 0:
+            nuetral_comments.append(x)
+        else:
+            negative_comments.append(x)
 
-    # Test 
-    # text = "Finn is only a tiny bit stupid and not idiotic. What I think about is good actually is really sarcastic"
-    text = "BB I have watched all ur videos...literally all... all are awesome... wishing that you will be most viewed artist on YouTube n most liked on FB... my DP status n everything features U... ur timing is just amazing...kha se late ho itne sare ideas"
-    print("Score: %6.2f , Text:  %s" % (sentiment(text), text))
+    print("Positive comments", positive_comments)
+    print("Negative comments", negative_comments)
